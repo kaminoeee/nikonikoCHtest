@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ホーム - Classroom</title>
+  <link rel="icon" href="https://img.icons8.com/color/1200/google-classroom.jpg">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: #eaeaea;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 2.5rem;
+      color: #4a90e2;
+    }
+    h2 {
+      margin-top: 32px;
+      font-size: 1.8rem;
+      color: #333;
+      border-bottom: 2px solid #4a90e2;
+      padding-bottom: 8px;
+    }
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none; /* 初期状態で非表示 */
+    }
+    .link-item {
+      background: #fff;      margin-bottom: 16px;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .link-item:hover {
+      transform: translateY(-3px);
+    }
+    .link-item a {
+      font-weight: bold;
+      color: #4a90e2;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    .link-item a:hover {
+      text-decoration: underline;
+    }
+    .link-desc {
+      margin-top: 4px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #999;
+    }
+    .toggle-button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .toggle-button:hover {
+      background-color: #357ab8;
+    }
+    .search-bar {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .search-bar input {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <h1>にこにこちゃんねる™</h1>
+  <p>学タブ民、GIGA民のためのサイトへのリンクをまとめています。主に川崎市・ISGC利用可。最近リンクが不足気味なのでサイトの寄付をよろしくお願いします。最終更新6/27（土）10am</p>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="リンクを検索..." onkeyup="filterLinks()">
+  </div>
+  
+  <h2>運営からのお知らせ</h2>
+  <ul class="link-list" id="news" style="display: block;"> <li class="link-item">
+      <a href="https://forms.gle/UsTVzG1FSGQC1XVC8" rel="noopener noreferrer">プロキシ、ユーチューブ寄付フォーム</a>
+      <div class="link-desc">ご協力よろしくお願いします！</div>
+    </li>
+  </ul>
+  
+  <h2>Youtubeダウンローダー</h2>
+  <button class="toggle-button" onclick="toggleLinks('youtube')">ダウンローダーを表示/非表示</button>
+  <ul class="link-list" id="youtube">
+    <li class="link-item">
+      <a href="https://www.acethinker.tw/free-online-audio-downloader" target="_blank" rel="noopener noreferrer">Youtubeダウンローダー</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+  </ul>
+  
+  <h2>わかめTube・ChocoTube・Mintubeなど</h2>
+  <button class="toggle-button" onclick="toggleLinks('wakame')">リンクを表示/非表示</button>
+  <ul class="link-list" id="wakame">
+    <li class="link-item">
+      <a href="https://chocotube-plus-production.up.railway.app/" target="_blank" rel="noopener noreferrer">Choco-tube-plus</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://wkt.up.railway.app/wkt" target="_blank" rel="noopener noreferrer">わかめTube</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://web-production-e4c47.up.railway.app/login" target="_blank" rel="noopener noreferrer">わかめtube</a>
+      <div class="link-desc">川崎市利用可、パス wakame</div>
+    </li>
+    <li class="link-item">
+      <a href="https://chocotube-plus-stellar.up.railway.app/" target="_blank" rel="noopener noreferrer">choco-tube-plus</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://choco----tube----plus.up.railway.app/" target="_blank" rel="noopener noreferrer">Choco-tube-plus</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://web-production-e4c47.up.railway.app/wkt" target="_blank" rel="noopener noreferrer">わかめtube-plus</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://sennin-tube-plus-production-ea46.up.railway.app/" target="_blank" rel="noopener noreferrer">仙人tube</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://sennin-tube-plus-god-production.up.railway.app/" target="_blank" rel="noopener noreferrer">仙人tube</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+  </ul>
+  
+  <h2>utopia</h2>
+  <button class="toggle-button" onclick="toggleLinks('utopia')">utopiaを表示/非表示</button>
+  <ul class="link-list" id="utopia">
+    <li class="link-item">
+      <a href="https://utopia.iei---trumpet-0006.dinprima.ro/" target="_blank" rel="noopener noreferrer">utopia(Proxy)</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://utopia.iei---trumpet-0007.dinprima.ro/" target="_blank" rel="noopener noreferrer">utopia(Proxy)</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://utopia.iei---trumpet-0008.dinprima.ro/" target="_blank" rel="noopener noreferrer">utopia(Proxy)</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://utopia.iei---trumpet-0009.dinprima.ro/" target="_blank" rel="noopener noreferrer">utopia(Proxy)</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://nana.utopia.drciocan.ro/" target="_blank" rel="noopener noreferrer">utopia(Proxy)</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+  </ul>
+  
+  <h2>shadow</h2>
+  <button class="toggle-button" onclick="toggleLinks('shadow')">shadowを表示/非表示</button>
+  <ul class="link-list" id="shadow">
+    <li class="link-item">
+      <a href="https://shadow.iei---trumpet-0002.swift.cl/" target="_blank" rel="noopener noreferrer">shadow（Proxy）</a>
+      <div class="link-desc">川崎市利用可、最初の画面で操作すると規制</div>
+    </li>
+    <li class="link-item">
+      <a href="https://shadow.nana.hotelbirajman.com.np/" target="_blank" rel="noopener noreferrer">shadow（Proxy）</a>
+      <div class="link-desc">川崎市利用可、最初の画面で操作すると規制</div>
+    </li>
+    <li class="link-item">
+      <a href="https://shadow.nana.lumeacopiilorploiesti.ro/" target="_blank" rel="noopener noreferrer">shadow（Proxy）</a>
+      <div class="link-desc">川崎市利用可、最初の画面で操作すると規制</div>
+    </li>
+  </ul>
+
+  <h2>daydream</h2>
+  <button class="toggle-button" onclick="toggleLinks('daydream')">daydreamを表示/非表示</button>
+  <ul class="link-list" id="daydream">
+    <li class="link-item">
+      <a href="https://daydreamx.v2.iei---trumpet-0008.dinprima.ro/" target="_blank" rel="noopener noreferrer">Day dream（Proxy）</a>
+      <div class="link-desc">川崎市利用可、多少使いにくい</div>
+    </li>
+  </ul>
+
+  <h2>その他プロキシサイト</h2>
+  <button class="toggle-button" onclick="toggleLinks('otherProxy')">その他プロキシサイトを表示/非表示</button>
+  <ul class="link-list" id="otherProxy">
+    <li class="link-item">
+      <a href="https://int.runee.uk/" target="_blank" rel="noopener noreferrer">インターステラー</a>
+      <div class="link-desc">プロキシ・川崎市・前橋市使用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://storage.googleapis.com/canvas-lms/index.html" target="_blank" rel="noopener noreferrer">dogeub</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+  </ul>
+
+  <h2>ChatGPT</h2>
+  <p>注:ChatGPTはログインが必要なものが多いです</p>
+  <button class="toggle-button" onclick="toggleLinks('ChatGPT')">ChatGPTを表示/非表示</button>
+  <ul class="link-list" id="ChatGPT">
+    <li class="link-item">
+      <a href="https://monica.im/home" target="_blank" rel="noopener noreferrer">Monika</a>
+      <div class="link-desc">川崎市利用可,ログインが必要</div>
+    </li>
+  </ul>
+  
+  <h2>にこにこGames（実験中）</h2>
+  <button class="toggle-button" onclick="toggleLinks('games')">ゲームを表示/非表示</button>
+  <ul class="link-list" id="games">
+    <li class="link-item">
+      <a href="https://mathpoop.com/misc/eaglercraftx/index.html" target="_blank" rel="noopener noreferrer">Eaglecraft1,8（マイクラ）</a>
+      <div class="link-desc">川崎市利用可、読み込み時にタップ</div>
+    </li>
+  </ul>
+
+  <h2>捨てメアドサイト紹介</h2>
+  <button class="toggle-button" onclick="toggleLinks('tempEmail')">捨てメアドサイトを表示/非表示</button>
+  <ul class="link-list" id="tempEmail">
+    <li class="link-item">
+      <a href="https://adguard.com/ja/adguard-temp-mail/overview.html" target="_blank" rel="noopener noreferrer">捨てメアドサイト1</a>
+      <div class="link-desc">川崎市利用可、メール送信は不可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://www.onetime-mail.com/" target="_blank" rel="noopener noreferrer">捨てメアドサイト2</a>
+      <div class="link-desc">川崎市利用可・メール送受信可</div>
+    </li>
+  </ul>
+
+  <h2>おもしろい系サイト紹介</h2>
+  <button class="toggle-button" onclick="toggleLinks('funSites')">おもしろい系サイトを表示/非表示</button>
+  <ul class="link-list" id="funSites">
+    <li class="link-item">
+      <a href="https://magma.com/" target="_blank" rel="noopener noreferrer">漫画作成サイト</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li> 
+    <li class="link-item">
+      <a href="https://talented-ixora-341.notion.site/NikoMusics-380b78a669db80e68ef7e41e015a81ce" target="_blank" rel="noopener noreferrer">Nikomusic</a>
+      <div class="link-desc">川崎市利用可 試作中なので手元にあった曲しか載せてないです</div>
+    </li>
+  </ul>
+
+  <h2>Scratchアカウント・外部サイト紹介</h2>
+  <button class="toggle-button" onclick="toggleLinks('scratch')">Scratchアカウントを表示/非表示</button>
+  <ul class="link-list" id="scratch">
+    <li class="link-item">
+      <a href="https://script.google.com/a/macros/kawasaki-edu.ed.jp/s/AKfycbzZr6_OlbryeiykIF5KDlPXlT8M5UEdRyietdS9jMsHfqCeeGOcG1H-VO3RZd5CW7bn/exec" target="_blank" rel="noopener noreferrer">6ちゃんねる2代目</a>
+      <div class="link-desc">学タブ勢最大級のコミュニティ・川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://html.cafe/x2a4e066c" target="_blank" rel="noopener noreferrer">Pro之助</a>
+      <div class="link-desc">川崎市利用可</div>
+    </li>
+    <li class="link-item">
+      <a href="https://scratch.mit.edu/users/10105F/" rel="noopener noreferrer">10105fさんのScratchアカウント</a>
+      <div class="link-desc">鉄道垢</div>
+    </li>
+  </ul>
+
+  <footer>
+    2026 にこにこちゃんねる™
+  </footer>
+
+  <script>
+    function toggleLinks(id) {
+      const list = document.getElementById(id);
+      if (list.style.display === "none" || list.style.display === "") {
+        list.style.display = "block";
+      } else {
+        list.style.display = "none";
+      }
+    }
+    function filterLinks() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toLowerCase();
+      const lists = document.querySelectorAll('.link-list');
+      lists.forEach(list => {
+        const items = list.querySelectorAll('.link-item');
+        let hasVisibleItems = false;
+        items.forEach(item => {
+          const linkText = item.querySelector('a').textContent.toLowerCase();
+          const linkHref = item.querySelector('a').href.toLowerCase();
+          if (linkText.includes(filter) || linkHref.includes(filter)) {
+            item.style.display = 'block';
+            hasVisibleItems = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        list.style.display = hasVisibleItems ? 'block' : 'none';
+      });
+    }
+  </script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"94c79d4d951745d085049dd7f2bbd8f8","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+<script defer data-domain="html.cafe" src="https://milkymouse.com/js/script.js"></script>
